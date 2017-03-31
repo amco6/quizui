@@ -16,16 +16,40 @@ angular.module('myApp.create', ['ngRoute'])
         }
     })
 
-    .controller('CreateCtrl', [function() {
+    .controller('CreateCtrl', ['$http', function($http) {
         var vm = this;
-        vm.questions = [];
+        vm.questions = [{number: 0}];
 
         vm.addQuestion = addQuestion;
+        vm.removeQuestion = removeQuestion;
+        vm.submit = submit;
 
+        function addQuestion(index) {
+            vm.questions.push({number: index});
+            console.log(index);
+        }
 
-        function addQuestion() {
-            vm.questions.push({});
+        function removeQuestion(index) {
+            if (vm.questions.length > 1) {
+                vm.questions.splice(index, 1);
+            }
+            console.log(index);
+        }
+
+        function submit() {
+            console.log(vm.quiz);
             console.log(vm.questions);
+
+            vm.quiz.questions = vm.questions;
+            postQuiz(vm.quiz);
+        }
+
+        function postQuiz(quiz) {
+
+            $http.post("http://localhost:8080/quiz/new", quiz, null)
+                .then(function(response) {
+                console.log(response);
+            });
         }
 
     }]);

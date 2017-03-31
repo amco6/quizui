@@ -3,16 +3,16 @@
         <div class="form-group">
             <h2>New Quiz</h2>
             <label for="name">Quiz Name: </label>
-            <input id="name" type="text" class="form-control">
-            <h3>Questions: </h3>
-            <fieldset ng-repeat="number in vm.questions">
+            <input id="name" type="text" class="form-control" ng-model="vm.quiz.name">
+            <h3 class="form-horizontal">Questions: </h3>
+            <fieldset ng-repeat="question in vm.questions">
                 <question class="form-horizontal" ></question>
             </fieldset>
             <div class="form-horizontal">
-                <button class=".btn-block" ng-click="vm.addQuestion()">Add question </button>
-                <button class=".btn-block" ng-hide="true">Remove question</button>
+                <button class=".btn-block" ng-click="vm.addQuestion($index)">Add question </button>
+                <button class=".btn-block" ng-click="vm.removeQuestion($index)">Remove question</button>
             </div>
-            <input type="submit" class="btn btn-default" ng-disabled="true">
+            <input type="submit" class="btn btn-default" ng-click="vm.submit()">
         </div>
     </form>
 </div>

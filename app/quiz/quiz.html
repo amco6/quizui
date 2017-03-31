@@ -1,0 +1,15 @@
+<div ng-controller="QuizCtrl as vm">
+    <h3>{{vm.quiz.quizName}}</h3>
+    <div ng-repeat="question in vm.quiz.questions">
+        <h4>{{question.question}}</h4>
+        <button ng-class="{'btn btn-success btn-lg btn-block': question.answerACorrect, 'btn btn-danger btn-lg btn-block': (!question.answerACorrect && question.played && question.answerAIncorrect), 'btn btn-info btn-lg btn-block': !question.played || (!question.answerAIncorrect && question.played && !question.answerACorrect)}"
+                ng-click="vm.checkAnswerA($index, question)" ng-disabled="question.played">{{question.answerA}}</button>
+        <button ng-class="{'btn btn-success btn-lg btn-block': question.answerBCorrect, 'btn btn-danger btn-lg btn-block': (!question.answerBCorrect && question.played && question.answerBIncorrect), 'btn btn-info btn-lg btn-block': !question.played || (!question.answerBIncorrect && question.played && !question.answerBCorrect)}"
+                ng-click="vm.checkAnswerB($index, question)" ng-disabled="question.played">{{question.answerB}}</button>
+        <button ng-class="{'btn btn-success btn-lg btn-block': question.answerCCorrect, 'btn btn-danger btn-lg btn-block': (!question.answerCCorrect && question.played && question.answerCIncorrect), 'btn btn-info btn-lg btn-block': !question.played || (!question.answerCIncorrect && question.played && !question.answerCCorrect)}"
+                ng-click="vm.checkAnswerC($index, question)" ng-disabled="question.played">{{question.answerC}}</button>
+        <button ng-class="{'btn btn-success btn-lg btn-block': question.answerDCorrect, 'btn btn-danger btn-lg btn-block': (!question.answerDCorrect && question.played && question.answerDIncorrect), 'btn btn-info btn-lg btn-block': !question.played || (!question.answerDIncorrect && question.played && !question.answerDCorrect)}"
+                ng-click="vm.checkAnswerD($index, question)" ng-disabled="question.played">{{question.answerD}}</button>
+    </div>
+    <h4>Score: {{vm.correctAnswers}} / {{vm.quiz.questions.length}}</h4>
+</div>

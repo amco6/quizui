@@ -9,7 +9,25 @@ angular.module('myApp.play', ['ngRoute'])
   });
 }])
 
-.controller('PlayCtrl', [function() {
+.controller('PlayCtrl', ['$http', '$location', function($http, $location) {
 
     console.log("play");
+    var vm = this;
+    vm.playQuiz = playQuiz;
+
+    activate();
+
+    function activate() {
+        $http.get("http://localhost:8080/quizzes").then(function(response) {
+            vm.quizzes = response.data;
+            console.log(response);
+        })
+    }
+
+    function playQuiz(id) {
+        $location.path("/play/quiz/" + id);
+    }
+
+
+
 }]);

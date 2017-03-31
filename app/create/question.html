@@ -1,17 +1,18 @@
 <div>
+    <h4 class="form-horizontal">Question {{$index + 1}}:</h4>
     <p></p>
     <label for="question">Question: </label>
-    <input id="question" type="text" class="form-control">
+    <input id="question" type="text" class="form-control" ng-model="question.question">
     <label for="answerA">Answer A: </label>
-    <input id="answerA" type="text" class="form-control">
+    <input id="answerA" type="text" class="form-control" ng-model="question.answerA">
     <label for="answerB">Answer B: </label>
-    <input id="answerB" type="text" class="form-control">
+    <input id="answerB" type="text" class="form-control" ng-model="question.answerB">
     <label for="answerC">Answer C: </label>
-    <input id="answerC" type="text" class="form-control">
+    <input id="answerC" type="text" class="form-control" ng-model="question.answerC">
     <label for="answerD">Answer D: </label>
-    <input id="answerD" type="text" class="form-control">
+    <input id="answerD" type="text" class="form-control" ng-model="question.answerD">
     <label for="correctAnswer">Correct answer: </label>
-    <select id="correctAnswer" class="form-control">
+    <select id="correctAnswer" class="form-control" ng-model="question.correctAnswer">
         <option disabled selected value> -- select the correct answer -- </option>
         <option>A</option>
         <option>B</option>

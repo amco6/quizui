@@ -1,5 +1,5 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div ng-controller="PlayCtrl as vm">
+  <ul>
+    <button class="btn btn-primary btn-lg btn-block" ng-click="vm.playQuiz(quiz.quizId)" ng-repeat="quiz in vm.quizzes">{{quiz.quizName}}</button>
+  </ul>
+</div>

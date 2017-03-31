@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.create',
   'myApp.play',
+  'myApp.quiz',
   'myApp.mainController',
   'myApp.version'
 ]).
